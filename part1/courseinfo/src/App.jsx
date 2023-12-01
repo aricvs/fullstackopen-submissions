@@ -19,9 +19,9 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <>
-      <Part part={props.part1} exercise={props.exercises1} />
-      <Part part={props.part2} exercise={props.exercises2} />
-      <Part part={props.part3} exercise={props.exercises3} />
+      <Part part={props.part1} exercises={props.exercises1} />
+      <Part part={props.part2} exercises={props.exercises2} />
+      <Part part={props.part3} exercises={props.exercises3} />
     </>
   );
 };
@@ -49,21 +49,18 @@ const App = () => {
     exercises: 14,
   };
 
-  const total_exercises = [part1, part2, part3];
-
-  const exercises_mapped = () => {
-    let total = 0;
-    total_exercises.map((item) => (total += item.exercises));
-    return total;
-  };
-
   return (
     <div>
       <Header course={course} />
-      <Part part={part1.name} exercises={part1.exercises} />
-      <Part part={part2.name} exercises={part2.exercises} />
-      <Part part={part3.name} exercises={part3.exercises} />
-      <Total total={exercises_mapped()} />
+      <Content
+        part1={part1.name}
+        exercises1={part1.exercises}
+        part2={part2.name}
+        exercises2={part2.exercises}
+        part3={part3.name}
+        exercises3={part3.exercises}
+      />
+      <Total total={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   );
 };
