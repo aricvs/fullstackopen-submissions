@@ -3,7 +3,7 @@
     participant browser
     participant server
 
-    browser->>server: POST https://studies cs.helsinki.fi/exampleapp/new_note
+    browser->>server: POST https://studies cs.helsinki.fi/exampleapp/new_note (adds new note to array)
     activate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
