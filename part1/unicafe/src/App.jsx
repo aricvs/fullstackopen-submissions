@@ -4,17 +4,15 @@ const Button = ({ onClick, text }) => {
   return <button onClick={onClick}>{text}</button>;
 };
 
-const HandleClick = () => {
+const handleClick = () => {
   console.log("test");
 };
 
 const DisplayStats = ({ statCategory, statCounter }) => {
   return (
-    <>
-      <p>
-        {statCategory} {statCounter}
-      </p>
-    </>
+    <p>
+      {statCategory} {statCounter}
+    </p>
   );
 };
 
@@ -24,12 +22,16 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const raiseGood = () => setGood(good + 1);
+  const raiseNeutral = () => setNeutral(neutral + 1);
+  const raiseBad = () => setBad(bad + 1);
+
   return (
     <>
       <h1>give feedback</h1>
-      <Button onClick={HandleClick} text="good" />
-      <Button onClick={HandleClick} text="neutral" />
-      <Button onClick={HandleClick} text="bad" />
+      <Button onClick={raiseGood} text="good" />
+      <Button onClick={raiseNeutral} text="neutral" />
+      <Button onClick={raiseBad} text="bad" />
       <h1>statistics</h1>
       <DisplayStats statCategory="good" statCounter={good} />
       <DisplayStats statCategory="neutral" statCounter={neutral} />
